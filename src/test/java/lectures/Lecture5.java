@@ -34,6 +34,9 @@ public class Lecture5 {
     // transform from one data type to another
     List<Person> people = MockData.getPeople();
 
+    List<PersonDTO> personDTOList = people.stream().map(PersonDTO::map).collect(Collectors.toList());
+
+    System.out.println(personDTOList.size());
   }
 
   @Test
