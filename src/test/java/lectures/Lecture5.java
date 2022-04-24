@@ -8,6 +8,7 @@ import beans.Person;
 import beans.PersonDTO;
 import com.google.common.collect.ImmutableList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import mockdata.MockData;
@@ -42,7 +43,15 @@ public class Lecture5 {
   @Test
   public void averageCarPrice() throws Exception {
     // calculate average of car prices
+    ImmutableList<Car> cars = MockData.getCars();
 
+    double average = cars.
+            stream().
+            mapToDouble(Car::getPrice).
+            average()
+            .orElse(0);
+
+    System.out.println(average);
   }
 
   @Test
