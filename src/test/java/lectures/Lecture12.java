@@ -16,9 +16,9 @@ public class Lecture12 {
         .stream()
         .map(Person::getEmail)
         .collect(
-                () -> Lists.newArrayList(),
-                (list, element) -> list.add(element),
-                (list1, list2) -> list1.addAll(list2));
+                Lists::newArrayList,
+                ArrayList::add,
+                ArrayList::addAll);
 
 //                Collectors.toList()
 
